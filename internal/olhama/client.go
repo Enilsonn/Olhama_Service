@@ -64,7 +64,7 @@ func (c *Client) Generate(ctx context.Context, prompt string) (*generateResponse
 	}
 
 	var olhamaResponse generateResponse
-	if err := json.NewDecoder(resp.Body).Decode(olhamaResponse); err != nil {
+	if err := json.NewDecoder(resp.Body).Decode(&olhamaResponse); err != nil {
 		return nil, fmt.Errorf("error to decode olhama json: %v", err)
 	}
 
